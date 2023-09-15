@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <%- include("header.ejs") %>
+    <div class="maincontainer">
+      <div class="title boxtitle">
+        <h1><%= today %></h1>
+      </div>
+  <div class="list box">
+    <form action="/submit" method="POST">
+      <input type="text" name="task" class="textbox" required>
+      <input type="submit" value="+" class="button">
+    </form>
+      <% if (locals.allTasks) { %>
+          
+          <% allTasks.forEach(element => { %>
+            <input type="checkbox">
+            <label for=<%= element %>><%= element %></label>
+            <br/>
+          <hr>
+          <% }) %>
+      <% } %>
+    
+  </div>
+  </div>
+  <%- include("footer.ejs") %>
+</body>
+</html>
